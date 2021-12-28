@@ -1,5 +1,4 @@
 import webiopi
-import subprocess
 
 @webiopi.macro
 def advance():
