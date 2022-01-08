@@ -4,14 +4,37 @@
 		<meta charset="utf-8">
 		<title>webiopi test</title>
 		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="./css/style.css">
 		
 		<script type="text/javascript" src="/webiopi.js"></script>
-		<script type="text/javascript" src="/main.js"></script>
+		<script type="text/javascript" src="/js/main.js"></script>
 	</head>
 	<body>
-		<input type="button" value="advance" class="python" onClick="advance()">
-		<input type="button" value="back" class="python" onClick="back()">
-		<input type="button" value="right" class="python" onClick="right()">
-		<input type="button" value="left" class="python" onClick="left()">
+		<section class="directing">
+			<span id="typewriter"></span>
+		</section>
+
+		<section class="move-control">
+			<button class="move-control-btn" id="top-btn"><img src="./img/arrow-top.svg"></button>
+			<div class="flex">
+				<button class="move-control-btn" onClick="left()" id="left-btn"><img src="./img/arrow-left.svg"></button>
+				<button class="move-control-btn" onClick="right()" id="right-btn"><img src="./img/arrow-right.svg"></button>
+			</div>
+			<button class="move-control-btn" onClick="back()" id="back-btn"><img src="./img/arrow-back.svg"></button>
+		</section>
+
+		<script src="./js/Directing.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const directing = new Directing(3000);
+
+				directing.typewriter({
+    				el: "#typewriter", //要素
+    				string: "Welcome to radio control", //文字列
+    				speed: 100 //速度
+				});
+			});
+		</script>
+
 	</body>
 </html>
